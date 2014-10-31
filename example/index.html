@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SceneMan Test</title>
+	<script type="text/javascript" src="/Users/yutanaka/git/SampoLink/plugins/jquery.min.js"></script>
+	<script type="text/javascript" src="../src/sceneman.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+(function() {
+	// 各シーンごとのコンストラクタを作成
+	var testScene = function() {
+		this.bindEvents = function() {
+			alert("test bindEvetns");
+		}
+		this.fadeIn = function() {
+			alert("test fadeIn");
+			this.fadeInDone();
+		}
+	};
+	// プロトタイプを設定する
+	testScene.prototype = am1.sceneMan.prototype;
+
+	var test2Scene = function() {
+		this.fadeIn = function() {
+			alert("test2 fadeIn");
+			this.fadeInDone();
+		}
+		this.unbindEvents = function() {
+			alert("test2 unbind");
+		}
+		this.bindEvents =function() {
+			alert("test2 bind");
+		}
+	}
+	test2Scene.prototype = am1.sceneMan.prototype;
+	
+	// シーンを生成して利用する
+	var test = new testScene();
+	var test2 = new test2Scene();
+	test.change([test,test2]);
+	
+})();
+</script>
+</body>
+</html>
