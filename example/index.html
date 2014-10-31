@@ -12,6 +12,7 @@
 	// 各シーンごとのコンストラクタを作成
 	var testScene = function() {
 		this.bindEvents = function() {
+			am1.sceneMan.prototype.bindEvents();
 			alert("test bindEvetns");
 		}
 		this.fadeIn = function() {
@@ -25,12 +26,13 @@
 	var test2Scene = function() {
 		this.fadeIn = function() {
 			alert("test2 fadeIn");
-			this.fadeInDone();
+			setTimeout("am1.sceneMan.prototype.fadeInDone()",1);
 		}
 		this.unbindEvents = function() {
 			alert("test2 unbind");
 		}
 		this.bindEvents =function() {
+			am1.sceneMan.prototype.bindEvents();
 			alert("test2 bind");
 		}
 	}
@@ -39,9 +41,10 @@
 	// シーンを生成して利用する
 	var test = new testScene();
 	var test2 = new test2Scene();
-	test.change([test,test2]);
+	test.change([test,test2,test]);
 	
 })();
 </script>
+<h1 onclick='alert("ok");'>シーンテスト</h1>
 </body>
 </html>
