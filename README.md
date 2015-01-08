@@ -9,7 +9,5 @@ sceneman.js
 
 sceneframe.js
 - シーンのひな形。このプログラムのprototypeを各シーン管理用のクラスのprototypeに代入して利用。
-- 
-
 
 
