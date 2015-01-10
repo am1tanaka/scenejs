@@ -9,6 +9,34 @@
 
 var sceneStab = function(){
 	/**
+	 * フェードイン処理
+	 * シーンに必要な要素を追加したのち、シーン開始時のエフェクトを書く。
+	 * エフェクトが完了したら、am1.sceneMan.prototype.fadeInDone()を呼び出すようにする。
+	 * この処理が不要な場合は削除する
+	 */
+	this.fadeIn = function() {
+		// シーンに必要な要素を追加する
+		alert("boot");
+		
+		// シーンの開始エフェクト
+
+		// エフェクトが完了したら、以下を呼び出すようにする
+		// am1.sceneMan.prototype.fadeInDone();
+	};
+	
+	/**
+	 * キー処理や、トリガーになるイベントをここで設定する。
+	 * sceneManから自動的に呼ばれる。
+	 */
+	this.bindEvents = function() {
+		// マスクを外すために、この関数呼び出しは残しておくこと
+		am1.sceneMan.prototype.bindEvents();
+		
+		// 以下に、キーやシーン移動トリガーのイベント設定を書く。
+
+	};
+	
+	/**
 	 * キーイベントやその他のイベントを解除する。
 	 * 画面の最上位に画面を覆う透明のdivを設定。
 	 */
@@ -20,39 +48,32 @@ var sceneStab = function(){
 		// 以下に、イベントを解除するコードを書く。
 
 	};
-	
-	/** フェードイン処理
+
+	/**
+	 * フェードアウト処理
 	 * シーン終了時のエフェクトを書く。
-	 * 完了したら、am1.sceneMan.prototype.nowScene.fadeOutDone()を呼び出す。
+	 * エフェクトが完了したら、am1.sceneMan.prototype.nowScene.fadeOutDone()を呼び出す。
 	 */
+	/*
 	this.fadeOut = function()
 	{
 		// シーンの終了エフェクト
 		
 		// フェードアウトが完了したら、以下の関数を呼び出すこと
-		am1.sceneMan.prototype.fadeOutDone();
+		// am1.sceneMan.prototype.nowScene.fadeOutDone();
 	};
-	
-	/** フェードイン処理
-	 * シーン開始時のエフェクトを書く。
-	 * 完了したら、am1.sceneMan.prototype.nowScene.fadeInDone()を呼び出す。
-	 */
-	this.fadeIn = function() {
-		// シーンの開始エフェクト
-		
-		// フェードインが完了したら、以下の関数を呼び出すこと
-		am1.sceneMan.prototype.fadeInDone();
-	};
+	*/
 	
 	/**
-	 * キー処理や、トリガーになるイベントをここで設定する
+	 * フェードアウトが完了したときの処理。
+	 * 不要になったシーンを構成する要素を削除する。
 	 */
-	this.bindEvents = function() {
-		// この関数呼び出しは残しておくこと
-		am1.sceneMan.prototype.bindEvents();
+	this.fadeOutDone = function()
+	{
+		// 不要になった要素を削除する
 		
-		// 以下に、キーやシーン移動トリガーのイベント設定を書く。
-
+		// シーン切り替えシーケンスを継続するために、以下は削除しないこと
+		am1.sceneMan.prototype.fadeOutDone();
 	};
 };
 

@@ -60,14 +60,16 @@ am1.sceneMan.prototype.unbindEvents = function() {
 		"<div id='scene_mask' "
 		+"style='position:absolute;left:0;top:0;width:100%;height:100%;z-index:2147483647'></div>"
 	);
-
-	alert("proto.unbindEvetns()");
 };
 
 /** フェードアウトを実行*/
 am1.sceneMan.prototype.fadeOut = function() {
-	alert("proto.fadeOut()");
-	setTimeout("am1.sceneMan.prototype.fadeOutDone()",1);
+	if (am1.sceneMan.prototype.nowScene != null) {
+		setTimeout("am1.sceneMan.prototype.nowScene.fadeOutDone()",1);
+	}
+	else {
+		setTimeout("am1.sceneMan.prototype.fadeOutDone()",1);
+	}
 };
 
 /** フェードアウトが完了した*/
@@ -84,7 +86,6 @@ am1.sceneMan.prototype.fadeOutDone = function()
 
 /** フェードインを実行*/
 am1.sceneMan.prototype.fadeIn = function() {
-	alert("proto.fadeIn()");
 	setTimeout("am1.sceneMan.prototype.fadeInDone()",1);
 };
 
@@ -105,6 +106,5 @@ am1.sceneMan.prototype.fadeInDone = function() {
 /** キーなどのイベントを設定する*/
 am1.sceneMan.prototype.bindEvents = function() {
 	$('#scene_mask').remove();
-	alert("proto.bindEvents()");
 };
 
