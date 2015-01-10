@@ -7,9 +7,7 @@ JavaScriptでの簡易シーン管理
 sceneman.js
 - シーン管理用のプログラム
 
-sceneframe.js
+scene-stab.js
 - シーンのひな形。このプログラムのprototypeを各シーン管理用のクラスのprototypeに代入して利用。
-- 
-
 
 
